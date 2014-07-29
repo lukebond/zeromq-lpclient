@@ -10,7 +10,7 @@ Use in conjunction with [Lazy Pirate Server](https://github.com/lukebond/zeromq-
 
 ### Lazy Pirate example
 
-lpclient.js (taken from https://github.com/lukebond/zeromq-lpclient/blob/master/example/example.js):
+`lpclient.js` (taken from https://github.com/lukebond/zeromq-lpclient/blob/master/example/example.js):
 ```javascript
 var LPClient = require('../index');
 
@@ -25,7 +25,7 @@ lpc.on('message', function (message) {
 lpc.ready();
 ```
 
-lpserver.js (taken from https://github.com/lukebond/zeromq-lpserver/blob/master/example/example.js):
+`lpserver.js` (taken from https://github.com/lukebond/zeromq-lpserver/blob/master/example/example.js):
 ```javascript
 var LPServer = require('../index');
 
@@ -75,13 +75,13 @@ $ node lpserver
 
 For Paranoid Pirate we need three components- the Lazy Pirate client, Paranoid Pirate queue and Paranoid Pirate worker.
 
-ppqueue.js (taken from https://github.com/lukebond/zeromq-ppqueue/blob/master/example/example.js):
+`ppqueue.js` (taken from https://github.com/lukebond/zeromq-ppqueue/blob/master/example/example.js):
 ```javascript
 var PPQueue = require('../index');
 var ppq = new PPQueue({backendUrl: 'tcp://127.0.0.1:9001', frontendUrl: 'tcp://127.0.0.1:9000'});
 ```
 
-ppworker.js (taken from https://github.com/lukebond/zeromq-ppworker/blob/master/example/example.js):
+`ppworker.js` (taken from https://github.com/lukebond/zeromq-ppworker/blob/master/example/example.js):
 ```javascript
 var PPWorker = require('../index');
 
