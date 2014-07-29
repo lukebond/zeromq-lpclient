@@ -17,10 +17,10 @@ var LPClient = require('../index');
 var lpc = new LPClient({url: 'tcp://127.0.0.1:9000', timeout: 2500});
 
 lpc.on('message', function (message) {
-    console.log(Date.now() + ' - Got work:', message.toString('utf8'));
-      setTimeout(function () {
-            lpc.ready();
-              }, 100);
+  console.log(Date.now() + ' - Got work:', message.toString('utf8'));
+  setTimeout(function () {
+    lpc.ready();
+  }, 100);
 });
 lpc.ready();
 ```
@@ -30,15 +30,15 @@ lpc.ready();
 var LPServer = require('../index');
 
 function workerFn(cb) {
-    console.log(Date.now() + ' - Got a request for work');
-      return cb(JSON.stringify({lpserver: 'pretending to do work'}));
+  console.log(Date.now() + ' - Got a request for work');
+  return cb(JSON.stringify({lpserver: 'pretending to do work'}));
 }
 
 var lps = new LPServer({url: 'tcp://127.0.0.1:9000'}, workerFn);
 
 lps.on('error', function (error) {
-    console.log('error', error);
-      process.exit(1);
+  console.log('error', error);
+  process.exit(1);
 });
 ```
 
@@ -86,8 +86,8 @@ var ppq = new PPQueue({backendUrl: 'tcp://127.0.0.1:9001', frontendUrl: 'tcp://1
 var PPWorker = require('../index');
 
 function workerFn(cb) {
-    console.log(Date.now() + ' - Got a request for work');
-      return cb(JSON.stringify({ppworker: 'pretending to do work'}));
+  console.log(Date.now() + ' - Got a request for work');
+  return cb(JSON.stringify({ppworker: 'pretending to do work'}));
 }
 
 var ppw = new PPWorker({url: 'tcp://127.0.0.1:9001'}, workerFn);
