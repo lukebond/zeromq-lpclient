@@ -127,3 +127,7 @@ $ node ppworker
 ```
 
 The Paranoid Pirate queue is routing the request-reply pairs between the client and the worker.
+
+## Licence
+
+MIT
