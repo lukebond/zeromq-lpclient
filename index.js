@@ -63,4 +63,14 @@ LPClient.prototype.ready = function () {
   this.timerId = setTimeout(this._retry.bind(this), this.timeout);
 };
 
+LPClient.prototype.close = function () {
+  clearTimeout(this.timerId);
+  this.socket.close();
+
+  // Ensure that zmqs socket is actually closed before emitting.
+  setImmediate(function () {
+    this.emit('close');
+  }.bind(this));
+};
+
 module.exports = LPClient;
